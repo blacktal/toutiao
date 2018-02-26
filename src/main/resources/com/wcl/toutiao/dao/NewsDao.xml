@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wcl.toutiao.dao.NewsDao">
+	<sql id="table">news</sql>
+	<sql id="selectFields">id, title, link, image, like_count, comment_count,
+		created_date, user_id</sql>
+	<select id="selectByUserIdAndOffset" resultType="com.wcl.toutiao.model.News">
+		<!-- select * from city where id = #{id} -->
+		<!-- 按limit查找出一批news，降序排列，如果传入的userId为0，则选取整个系统的新闻，
+		如果userId不为0，则选取当前id对应的用户的新闻 -->
+		<!-- select * from news where user_id = #{userId} -->
+		SELECT 
+		<include refid="selectFields" /> 
+		FROM 
+		<include refid="table" /> 
+
+		<if test="userId!=0">
+			WHERE user_id = #{userId} 
+		</if>
+		ORDER BY id DESC 
+        LIMIT #{offset}, #{limit} 
+
+	</select>
+</mapper>

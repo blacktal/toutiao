@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!-- 
+    <typeAliases>
+        <package name="sample.mybatis.domain"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="sample/mybatis/mapper/CityMapper.xml"/>
+        <mapper resource="sample/mybatis/mapper/HotelMapper.xml"/>
+    </mappers>
+ -->    
+    <settings>
+	    <setting name="cacheEnabled" value="true"/>
+	    <!-- 允许jdbc支持自动生成主键 -->
+	    <setting name="useGeneratedKeys" value="true"/>
+	    <setting name="defaultStatementTimeout" value="3000"/>
+	    <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+</configuration>
