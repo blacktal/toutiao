@@ -28,7 +28,7 @@ public interface MessageDao {
     List<Message> selectMessageByConversationId(@Param("conversationId") String conversationId);
     
     /**   
-     * @Title: selectConversationList
+     * @Title: selectConversationList  
      * @Description: 同一个conversation中取最新的一条，group操作
      * @param: @param userId
      * @param: @return      
